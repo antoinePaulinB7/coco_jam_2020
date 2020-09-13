@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-export(int) var hp = 10
+export(int) var hp = 100
 
 var collision_shape
 
