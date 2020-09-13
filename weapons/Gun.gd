@@ -29,7 +29,7 @@ func _physics_process(delta):
 	if weapon_owner == null:
 		dir = Vector2.RIGHT
 	else:
-		dir = weapon_owner.velocity * Vector2(weapon_owner.get_sprite().scale.x, 1)
+		dir = weapon_owner.input_vector * Vector2(weapon_owner.get_sprite().scale.x, 1)
 		if dir.is_equal_approx(Vector2.ZERO):
 			dir = Vector2.RIGHT
 		dir = dir.normalized()

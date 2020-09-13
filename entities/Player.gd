@@ -253,6 +253,7 @@ func ai_ranged_egg():
 			if get_global_position().distance_to(ai_data.player_target.get_global_position()) <= 32 * (ai_data.player_target.get_scale().x + scale.x):
 				ai_data.ai_state = "wait"
 				ai_data.wait = 30
+				ai_data.target = ai_data.player_target.get_global_position()
 			else:
 				move_toward_player()
 		"wait":
@@ -260,7 +261,7 @@ func ai_ranged_egg():
 				ai_data.ai_state = "attack"
 			ai_data.wait -= 1
 		"attack":
-			move_toward_player()
+			move_toward_target(ai_data.target)
 			attack()
 			ai_data.ai_state = "wait_after_attack"
 			ai_data.wait = 5
@@ -278,23 +279,45 @@ func ai_ranged_gun():
 			if get_global_position().distance_to(ai_data.player_target.get_global_position()) <= 64 * (ai_data.player_target.get_scale().x + scale.x):
 				ai_data.ai_state = "wait"
 				ai_data.wait = 30
+				ai_data.target = ai_data.player_target.get_global_position()
 			else:
 				move_toward_player()
 		"wait":
 			if ai_data.wait <= 0:
-				ai_data.ai_state = "attack"
+				ai_data.ai_state = "attack_1"
 			ai_data.wait -= 1
-		"attack":
-			move_toward_player()
+		"attack_1":
+			move_toward_target(ai_data.target)
+			attack()
+			ai_data.ai_state = "wait_2"
+			ai_data.wait = 15
+		"wait_2":
+			if ai_data.wait <= 0:
+				ai_data.ai_state = "attack_2"
+			ai_data.wait -= 1
+		"attack_2":
+			move_toward_target(ai_data.target)
+			attack()
+			ai_data.ai_state = "wait_3"
+			ai_data.wait = 15
+		"wait_3":
+			if ai_data.wait <= 0:
+				ai_data.ai_state = "attack_3"
+			ai_data.wait -= 1
+		"attack_3":
+			move_toward_target(ai_data.target)
 			attack()
 			ai_data.ai_state = "wait_after_attack"
-			ai_data.wait = 5
+			ai_data.wait = 60
 		"wait_after_attack":
 			if ai_data.wait <= 0:
 				ai_data.ai_state = "idle"
 			ai_data.wait -= 1
 
+func move_toward_target(target):
+	var dir = target - position
+	input_vector = dir.normalized()
+
 func move_toward_player():
 	if ai_data.player_target:
-		var dir = ai_data.player_target.position - position
-		input_vector = dir.normalized()
+		move_toward_target(ai_data.player_target.get_global_position())

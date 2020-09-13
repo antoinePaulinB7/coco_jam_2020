@@ -139,7 +139,7 @@ tracks/1/keys = {
 [node name="EnemyRangedEgg" type="KinematicBody2D" groups=[
 "Entity",
 ]]
-collision_mask = 3
+collision_mask = 35
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -150,8 +150,7 @@ ai_type = "ranged_egg"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 5 )
-animation = "take_damage"
-frame = 1
+animation = "idle"
 playing = true
 
 [node name="Weapon place" type="Node2D" parent="AnimatedSprite"]

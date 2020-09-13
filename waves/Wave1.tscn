@@ -1,13 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://items/Blob.tscn" type="PackedScene" id=1]
-[ext_resource path="res://items/DroppedSword.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/Enemy.tscn" type="PackedScene" id=1]
 
 [node name="Wave" type="Node"]
 
-[node name="DroppedSword" parent="." instance=ExtResource( 2 )]
-position = Vector2( -50, 50 )
-
-[node name="Blob" parent="." instance=ExtResource( 1 )]
-position = Vector2( -50, 0 )
-hp = 100
+[node name="Enemy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -50 )

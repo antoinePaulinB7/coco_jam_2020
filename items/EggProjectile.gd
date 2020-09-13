@@ -8,12 +8,12 @@ extends Area2D
 onready var egg_particles = $EggBreakParticles
 
 var velocity = Vector2.RIGHT
-var speed = 160
+var speed = 250
 var damage = 10
 var weapon_owner
 
 func _physics_process(delta):
-	position += velocity * speed * scale.x * delta
+	position += velocity * speed * delta
 
 func set_scale(scl):
 	scale = scl

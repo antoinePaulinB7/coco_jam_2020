@@ -7,6 +7,7 @@ var belongs_to_player
 var belongs_to_enemy
 var weapon_owner
 var already_touched = []
+var dir
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,7 +22,17 @@ func _ready():
 	elif belongs_to_enemy:
 		weapon_owner = owner_enemy
 	else:
-		weapon_owner = self
+		weapon_owner = null
+		
+func _physics_process(delta):
+	if weapon_owner == null:
+		dir = Vector2.RIGHT
+	else:
+		dir = weapon_owner.input_vector * Vector2(weapon_owner.get_sprite().scale.x, 1)
+		if dir.is_equal_approx(Vector2.ZERO):
+			dir = Vector2.RIGHT
+		dir = dir.normalized()
+	rotation = dir.angle()
 
 func take_damage(a, b, c):
 	pass

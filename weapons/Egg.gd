@@ -1,7 +1,7 @@
 extends Node2D
 
 export(String) var projectile_source_name = "EggProjectile"
-export(int) var SPEED = 160
+export(int) var SPEED = 250
 export(int) var DAMAGE = 10
 
 var projectile
@@ -18,6 +18,6 @@ func shoot():
 	new_projectile.set_scale(weapon_owner.get_scale())
 	new_projectile.set_speed(SPEED)
 	new_projectile.set_damage(DAMAGE)
-	new_projectile.set_velocity(weapon_owner.get_velocity().normalized())
+	new_projectile.set_velocity(weapon_owner.input_vector.normalized())
 	
 	get_tree().get_root().add_child(new_projectile)
