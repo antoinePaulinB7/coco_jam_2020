@@ -125,11 +125,11 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 
 [node name="Hat place" type="Node2D" parent="AnimatedSprite"]
-position = Vector2( 1, 2.38419e-07 )
+position = Vector2( 0, -3 )
 
 [node name="Weapon place" type="Node2D" parent="AnimatedSprite"]
 position = Vector2( 5, 0 )

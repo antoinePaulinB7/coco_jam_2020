@@ -2,8 +2,8 @@
 
 [ext_resource path="res://entities/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Camera2D.gd" type="Script" id=2]
+[ext_resource path="res://items/Hat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://World.gd" type="Script" id=4]
-[ext_resource path="res://DeathMessage.gd" type="Script" id=5]
 [ext_resource path="res://tiles/TileSet.tres" type="TileSet" id=6]
 [ext_resource path="res://TileMap.gd" type="Script" id=7]
 
@@ -16,6 +16,25 @@ font_data = SubResource( 3 )
 [node name="World" type="Node2D"]
 script = ExtResource( 4 )
 
+[node name="Hat" parent="." instance=ExtResource( 3 )]
+position = Vector2( -100, -25 )
+
+[node name="Hat2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -50, -25 )
+hat_name = "hat_2"
+
+[node name="Hat3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -25 )
+hat_name = "hat_3"
+
+[node name="Hat4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 50, -25 )
+hat_name = "hat_4"
+
+[node name="Hat5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 100, -25 )
+hat_name = "hat_5"
+
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1
 tile_set = ExtResource( 6 )
@@ -26,7 +45,6 @@ script = ExtResource( 7 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -2 )
-weapon_source_name = "Sword"
 ai_type = ""
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -36,8 +54,6 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
 script = ExtResource( 2 )
-zoom_speed = 0.025
-MAX_ZOOM = Vector2( 8, 8 )
 
 [node name="CenterContainer" type="CenterContainer" parent="Player/Camera2D"]
 anchor_left = 0.5
@@ -66,5 +82,5 @@ text = "you died
 score: 100"
 fit_content_height = true
 scroll_active = false
-script = ExtResource( 5 )
 [connection signal="player_died" from="." to="Player/Camera2D" method="_on_World_player_died"]
+[connection signal="victory" from="." to="Player/Camera2D" method="_on_World_victory"]

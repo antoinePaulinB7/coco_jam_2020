@@ -8,7 +8,7 @@ extends Camera2D
 export(float) var zoom_speed = 0.015
 export(Vector2) var MAX_ZOOM = Vector2(6, 4)
 
-onready var death_message_box = $"CenterContainer/RichTextLabel"
+onready var message_box = $"CenterContainer/RichTextLabel"
 
 var camera_owner
 var target_zoom
@@ -32,9 +32,23 @@ func death_ui(final_score):
 	drag_margin_left = 0
 	drag_margin_right = 0
 	
-	death_message_box.score = final_score
-	death_message_box.visible = true
+	message_box.set_text("you died\nscore: %d" % final_score)
+	message_box.visible = true
+
+func victory_ui(final_score):
+	print("camera player victory animation")
 	
+	drag_margin_top = 0
+	drag_margin_bottom = 0
+	drag_margin_left = 0
+	drag_margin_right = 0
+	
+	message_box.set_text("victory!\nscore: %d" % final_score)
+	message_box.visible = true
 
 func _on_World_player_died(score):
 	death_ui(score)
+
+
+func _on_World_victory(score):
+	victory_ui(score)

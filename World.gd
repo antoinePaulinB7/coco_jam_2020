@@ -6,9 +6,11 @@ extends Node2D
 onready var player = $Player
 
 signal player_died(score)
+signal victory(score)
 
 var wave_manager = {}
 var player_died_sent = false
+var victory_signal_sent = false
 var waves = []
 var directory
 
@@ -19,7 +21,7 @@ func _ready():
 	wave_manager.curr_wave = 0
 	wave_manager.timer = Timer.new()
 	wave_manager.timer.connect("timeout", self, "_on_timer_timeout")
-	wave_manager.timer.set_wait_time(2)
+	wave_manager.timer.set_wait_time(15)
 	add_child(wave_manager.timer)
 	wave_manager.timer.start()
 
@@ -52,6 +54,8 @@ func spawn(curr_wave):
 		wave_manager.timer.stop()
 
 func check_victory():
+	if victory_signal_sent:
+		return
 	var children = get_children()
 	var entities = []
 	for c in children:
@@ -60,9 +64,11 @@ func check_victory():
 				entities.push_back(c)
 	
 	if entities.size() == 1 and entities[0] == player:
-		print("victory!")
+		emit_signal("victory", int(player.MAX_HP))
+		player_died_sent = true
 
 func _on_timer_timeout():
 	spawn(wave_manager.curr_wave)
+	print("Spawning new wave")
 	wave_manager.curr_wave += 1
 	wave_manager.timer.start()

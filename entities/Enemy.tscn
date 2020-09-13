@@ -115,7 +115,6 @@ weapon_source_name = "Sword"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 5 )
 animation = "walk"
-frame = 2
 playing = true
 
 [node name="Weapon place" type="Node2D" parent="AnimatedSprite"]
