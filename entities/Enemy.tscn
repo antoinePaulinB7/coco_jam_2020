@@ -114,6 +114,7 @@ blob_source_name = "RedBlob"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 5 )
 animation = "walk"
+frame = 1
 playing = true
 
 [node name="Weapon place" type="Node2D" parent="AnimatedSprite"]
