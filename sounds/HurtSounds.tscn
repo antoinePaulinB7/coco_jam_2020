@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sounds/HurtSounds.gd" type="Script" id=1]
+[ext_resource path="res://sounds/hurt_1.ogg" type="AudioStream" id=2]
+[ext_resource path="res://sounds/hurt_2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://sounds/hurt_3.ogg" type="AudioStream" id=4]
+
+[node name="HurtSounds" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="hurt1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+attenuation = 15.0
+
+[node name="hurt2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+attenuation = 15.0
+
+[node name="hurt3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+attenuation = 15.0

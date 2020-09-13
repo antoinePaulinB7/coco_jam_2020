@@ -57,7 +57,7 @@ func _physics_process(delta):
 	if is_dead:
 		return
 	
-	var hp_scale = lerp(0.5, 1.0, hp / 100.0)
+	var hp_scale = 0.5 + lerp(0, 0.5, hp / 100.0)
 	scale = Vector2(hp_scale, hp_scale)
 	
 	# Move
@@ -71,7 +71,7 @@ func _physics_process(delta):
 		if attack:
 			attack()
 		if Input.is_action_just_pressed("ui_cancel"):
-			die()
+			heal(50)
 			return
 	else:
 		# ai stuff
@@ -127,9 +127,13 @@ func take_damage(amount, attack_origin, knock_back):
 
 func heal(amount):
 	hp += amount
+	
 	if hp >= MAX_HP:
 		MAX_HP = hp
+	
 	heal_particles.restart()
+	$Heal.pitch_scale = 1 / scale.x
+	$Heal.play()
 
 func equip_weapon(weapon_name):
 	drop_item()

@@ -22,45 +22,61 @@ script = ExtResource( 16 )
 
 [node name="small1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 1 )
+attenuation = 15.0
 
 [node name="small2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
+attenuation = 15.0
 
 [node name="small3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+attenuation = 15.0
 
 [node name="small4" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+attenuation = 15.0
 
 [node name="small5" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
+attenuation = 15.0
 
 [node name="small6" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
+attenuation = 15.0
 
 [node name="normal1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
+attenuation = 15.0
 
 [node name="normal2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
+attenuation = 15.0
 
 [node name="normal3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
+attenuation = 15.0
 
 [node name="normal4" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )
+attenuation = 15.0
 
 [node name="normal5" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
+attenuation = 15.0
 
 [node name="big1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
+attenuation = 15.0
 
 [node name="big2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 13 )
+attenuation = 15.0
 
 [node name="big3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 14 )
+attenuation = 15.0
 
 [node name="big4" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -0.943848, 0 )
 stream = ExtResource( 15 )
+attenuation = 15.0

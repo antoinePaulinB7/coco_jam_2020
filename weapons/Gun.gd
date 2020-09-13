@@ -42,5 +42,10 @@ func shoot():
 	if raycast.is_colliding():
 		var target = raycast.get_collider()
 		if target != weapon_owner:
+			if target.is_in_group("Entity"):
+				if target.name == "Player":
+					$Hit.play()
+				else:
+					$Miss.play()
 			var total_damage = scale.x * DAMAGE
 			target.take_damage(total_damage, get_global_position(), total_damage * 10)

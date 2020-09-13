@@ -20,13 +20,12 @@ func _ready():
 	add_child(hat)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func take_damage(a, b, c):
+	queue_free()
 
 
 func _on_Hat_body_entered(body):
-	if body.is_in_group("Entity"):
+	if body.is_in_group("Entity") and body.name == "Player":
 		remove_child(hat)
 		delete_children(body.find_node("Hat place"))
 		body.find_node("Hat place").add_child(hat)
@@ -36,6 +35,7 @@ func _on_timer_timeout():
 	queue_free()
 
 static func delete_children(node):
-	for n in node.get_children():
-		node.remove_child(n)
-		n.queue_free()
+	if node != null:
+		for n in node.get_children():
+			node.remove_child(n)
+			n.queue_free()

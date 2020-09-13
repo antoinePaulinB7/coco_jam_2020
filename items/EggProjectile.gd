@@ -37,7 +37,10 @@ func take_damage(a, b, c):
 
 func destroy():
 	hide()
+	$AudioStreamPlayer2D.play()
 	egg_particles.restart()
+	yield(get_tree().create_timer(0.25), "timeout")
+	$AudioStreamPlayer2D2.play()
 	yield(get_tree().create_timer(1), "timeout")
 	call_deferred("queue_free")
 	print("this %s is destroyed" % name)

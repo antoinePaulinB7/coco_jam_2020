@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/default_sword.png" type="Texture" id=1]
 [ext_resource path="res://weapons/Sword.gd" type="Script" id=2]
+[ext_resource path="res://sounds/sword_attack.ogg" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.0
@@ -82,6 +83,20 @@ tracks/2/keys = {
 "method": "reset_touched"
 } ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath("AudioStreamPlayer2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "inactive"
@@ -129,6 +144,7 @@ states/attack/position = Vector2( 491, 80 )
 states/inactive/node = SubResource( 11 )
 states/inactive/position = Vector2( 220, 80 )
 transitions = [ "attack", "inactive", SubResource( 12 ), "inactive", "attack", SubResource( 13 ) ]
+start_node = "inactive"
 graph_offset = Vector2( -297.118, -35.616 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=15]
@@ -160,4 +176,8 @@ tree_root = SubResource( 14 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 15 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+attenuation = 15.0
 [connection signal="body_entered" from="." to="." method="_on_Weapon_body_entered"]
