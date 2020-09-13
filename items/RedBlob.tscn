@@ -21,6 +21,5 @@ disabled = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CollisionShape2D"]
 frames = ExtResource( 1 )
-frame = 5
 playing = true
 [connection signal="body_entered" from="." to="." method="_on_Blob_body_entered"]

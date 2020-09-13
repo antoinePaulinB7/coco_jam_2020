@@ -32,7 +32,7 @@ func death_ui(final_score):
 	drag_margin_left = 0
 	drag_margin_right = 0
 	
-	message_box.set_text("you died\nscore: %d" % final_score)
+	message_box.set_text("you died\nscore: %d\n\nESCAPE to play\nagain" % final_score)
 	message_box.visible = true
 
 func victory_ui(final_score):
@@ -43,7 +43,7 @@ func victory_ui(final_score):
 	drag_margin_left = 0
 	drag_margin_right = 0
 	
-	message_box.set_text("victory!\nscore: %d" % final_score)
+	message_box.set_text("victory!\nscore: %d\n\nESCAPE to play\nagain" % final_score)
 	message_box.visible = true
 
 func _on_World_player_died(score):

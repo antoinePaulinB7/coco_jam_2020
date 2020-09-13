@@ -49,16 +49,13 @@ func _ready():
 		ai_data.ai_state = "idle"
 	
 	hp = MAX_HP
-	
-	var hp_scale = lerp(0.5, 1.0, hp / 100.0)
-	scale = Vector2(hp_scale, hp_scale)
+	update_scale()
 
 func _physics_process(delta):
 	if is_dead:
 		return
 	
-	var hp_scale = 0.5 + lerp(0, 0.5, hp / 100.0)
-	scale = Vector2(hp_scale, hp_scale)
+	update_scale()
 	
 	# Move
 	input_vector = Vector2.ZERO
@@ -70,9 +67,6 @@ func _physics_process(delta):
 		var attack = Input.is_action_just_pressed("ui_accept")
 		if attack:
 			attack()
-		if Input.is_action_just_pressed("ui_cancel"):
-			heal(50)
-			return
 	else:
 		# ai stuff
 		match ai_data.ai_type:
@@ -105,6 +99,11 @@ func _physics_process(delta):
 	else:
 		state_machine.travel("idle")
 	
+
+func update_scale():
+	var hp_scale = 0.5 + lerp(0, 0.5, hp / 100.0)
+	hp_scale = min(hp_scale, 5)
+	scale = Vector2(hp_scale, hp_scale)
 
 func attack():
 	if weapon:
@@ -154,9 +153,7 @@ func equip_weapon(weapon_name):
 	weapon_state_machine.start("inactive")
 
 func drop_item():
-	if $"AnimatedSprite/Weapon place".get_child_count() == 0:
-		pass
-	else:
+	while $"AnimatedSprite/Weapon place".get_child_count() > 0:
 		var curr_weapon = $"AnimatedSprite/Weapon place".get_child(0)
 		weapon = null
 		weapon_state_machine = null

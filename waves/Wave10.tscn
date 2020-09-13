@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://entities/EnemyRangedEgg.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/EnemyRangedGun.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/Enemy.tscn" type="PackedScene" id=3]
+
+[node name="Wave" type="Node"]
+
+[node name="EnemyRangedEgg" parent="." instance=ExtResource( 1 )]
+position = Vector2( -50, 0 )
+MAX_HP = 650
+
+[node name="EnemyRangedEgg3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 50, 0 )
+MAX_HP = 1000
+
+[node name="Enemy" parent="." instance=ExtResource( 3 )]
+MAX_HP = 650

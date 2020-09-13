@@ -32,12 +32,22 @@ func instantiate(thing):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if (victory_signal_sent or player_died_sent) and Input.is_action_just_pressed("ui_cancel"):
+		reset()
+	
 	if wave_manager.state == "check_victory":
 		check_victory()
 	
 	if player.is_dead and !player_died_sent:
-		emit_signal("player_died", int(player.MAX_HP))
+		if !victory_signal_sent:
+			emit_signal("player_died", int(player.MAX_HP))
 		player_died_sent = true
+		yield(get_tree().create_timer(3), "timeout")
+		reset()
+
+func reset():
+	delete_children(self)
+	get_tree().reload_current_scene()
 
 func spawn(curr_wave):
 	var file_name = "res://waves/Wave%d.tscn" % curr_wave
@@ -65,10 +75,27 @@ func check_victory():
 	
 	if entities.size() == 1 and entities[0] == player:
 		emit_signal("victory", int(player.MAX_HP))
-		player_died_sent = true
+		victory_signal_sent = true
+		
+		var wave = load("res://waves/Victory.tscn").instance()
+		while wave.get_child_count() > 0:
+			var child = wave.get_child(0)
+			wave.remove_child(child)
+			instantiate(child)
+			
+		print(get_children())
+
+
 
 func _on_timer_timeout():
 	spawn(wave_manager.curr_wave)
 	print("Spawning new wave")
 	wave_manager.curr_wave += 1
 	wave_manager.timer.start()
+
+
+static func delete_children(node):
+	if node != null:
+		for n in node.get_children():
+			node.remove_child(n)
+			n.queue_free()

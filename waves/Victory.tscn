@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://entities/EnemyRangedEgg.tscn" type="PackedScene" id=2]
+
+[node name="Wave" type="Node"]
+
+[node name="EnemyRangedEgg" parent="." instance=ExtResource( 2 )]
+position = Vector2( -2000, -1200 )
+collision_layer = 0
+collision_mask = 2
+MAX_HP = 1000
+
+[node name="EnemyRangedEgg2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2000, -1200 )
+collision_layer = 0
+collision_mask = 2
+MAX_HP = 1000
+
+[node name="EnemyRangedEgg3" parent="." instance=ExtResource( 2 )]
+position = Vector2( -2000, 1200 )
+collision_layer = 0
+collision_mask = 2
+MAX_HP = 1000
+
+[node name="EnemyRangedEgg4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2000, 1200 )
+collision_layer = 0
+collision_mask = 2
+MAX_HP = 1000

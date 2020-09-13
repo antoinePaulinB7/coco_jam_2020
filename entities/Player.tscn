@@ -171,8 +171,8 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
-animation = "take_damage"
-frame = 1
+animation = "idle"
+frame = 3
 playing = true
 
 [node name="Hat place" type="Node2D" parent="AnimatedSprite"]
