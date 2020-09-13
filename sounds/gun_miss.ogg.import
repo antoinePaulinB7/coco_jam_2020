@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gun_miss.ogg-be09f5899c1cf5c72ef10be2c3da0782.oggstr"
+
+[deps]
+
+source_file="res://sounds/gun_miss.ogg"
+dest_files=[ "res://.import/gun_miss.ogg-be09f5899c1cf5c72ef10be2c3da0782.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,110 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="raw_data" version="1.3.0" audacityversion="2.4.2" sel0="10.3443537415" sel1="10.3443537415" vpos="0" h="9.3505668934" zoom="344.5312500000" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="Audio Track" isSelected="1" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="14848">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808b26.au" len="14848" min="-0.587468" max="0.683108" rms="0.078121"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="0.33668934" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="14080">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808a95.au" len="14080" min="-0.001372" max="0.00155" rms="0.000081"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="1.26548753" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="87040">
+				<waveblock start="0">
+					<simpleblockfile filename="e08084fa.au" len="87040" min="-0.704072" max="0.808467" rms="0.072456"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="3.23918367" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="74240">
+				<waveblock start="0">
+					<simpleblockfile filename="e080831b.au" len="74240" min="-0.173953" max="0.127792" rms="0.042229"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="4.92263039" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="17408">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808347.au" len="17408" min="-0.505933" max="0.447202" rms="0.062692"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="5.31736961" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="19968">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808cef.au" len="19968" min="-0.891251" max="0.71878" rms="0.089296"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="5.77015873" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="103936">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808ade.au" len="103936" min="-0.73158" max="0.623249" rms="0.051021"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="8.12698413" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="114176">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808956.au" len="96768" min="-0.766028" max="0.849438" rms="0.056791"/>
+				</waveblock>
+				<waveblock start="96768">
+					<simpleblockfile filename="e0808eaa.au" len="17408" min="-0.695637" max="0.503325" rms="0.073064"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="0.65596372" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="26880">
+				<waveblock start="0">
+					<simpleblockfile filename="e080833a.au" len="26880" min="-0.662683" max="0.667345" rms="0.06701"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<labeltrack name="Label Track" isSelected="1" height="152" minimized="0" numlabels="26">
+		<label t="0.0551473923" t1="0.0551473923" title="sword_attack"/>
+		<label t="0.6980498866" t1="0.6980498866" title="egg_swish"/>
+		<label t="1.0347392290" t1="1.0347392290" title="egg_crack"/>
+		<label t="1.3502040816" t1="1.3502040816" title="egg_splurt"/>
+		<label t="1.8227664399" t1="1.8227664399" title="gun_pow"/>
+		<label t="2.8828117914" t1="2.8828117914" title="gun_hit"/>
+		<label t="3.2928798186" t1="3.2928798186" title="gun_miss"/>
+		<label t="5.0634013605" t1="5.0634013605" title="hurt_1"/>
+		<label t="5.4668480726" t1="5.4668480726" title="hurt_2"/>
+		<label t="5.9399546485" t1="5.9399546485" title="hurt_3"/>
+		<label t="6.2621315193" t1="6.2621315193" title="heal"/>
+		<label t="7.1894784580" t1="7.1894784580" title="small_step_1"/>
+		<label t="7.3621768707" t1="7.3621768707" title="small_step_2"/>
+		<label t="7.5274829932" t1="7.5274829932" title="small_step_3"/>
+		<label t="7.6691156463" t1="7.6691156463" title="small_step_4"/>
+		<label t="7.8534240363" t1="7.8534240363" title="small_step_5"/>
+		<label t="8.0073469388" t1="8.0073469388" title="small_step_6"/>
+		<label t="8.2397278912" t1="8.2397278912" title="normal_step_1"/>
+		<label t="8.4088435374" t1="8.4088435374" title="normal_step_2"/>
+		<label t="8.6041723356" t1="8.6041723356" title="normal_step_3"/>
+		<label t="8.7799546485" t1="8.7799546485" title="normal_step_3"/>
+		<label t="8.9640816327" t1="8.9640816327" title="normal_step_4"/>
+		<label t="9.5335147392" t1="9.5335147392" title="big_step_1"/>
+		<label t="9.8110657596" t1="9.8110657596" title="big_step_2"/>
+		<label t="10.0809070295" t1="10.0809070295" title="big_step_3"/>
+		<label t="10.3443537415" t1="10.3443537415" title="big_step_4"/>
+	</labeltrack>
+</project>

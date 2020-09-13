@@ -1,0 +1,66 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://sounds/small_step_1.ogg" type="AudioStream" id=1]
+[ext_resource path="res://sounds/small_step_2.ogg" type="AudioStream" id=2]
+[ext_resource path="res://sounds/small_step_3.ogg" type="AudioStream" id=3]
+[ext_resource path="res://sounds/small_step_4.ogg" type="AudioStream" id=4]
+[ext_resource path="res://sounds/small_step_5.ogg" type="AudioStream" id=5]
+[ext_resource path="res://sounds/small_step_6.ogg" type="AudioStream" id=6]
+[ext_resource path="res://sounds/normal_step_1.ogg" type="AudioStream" id=7]
+[ext_resource path="res://sounds/normal_step_2.ogg" type="AudioStream" id=8]
+[ext_resource path="res://sounds/normal_step_5.ogg" type="AudioStream" id=9]
+[ext_resource path="res://sounds/normal_step_3.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sounds/normal_step_4.ogg" type="AudioStream" id=11]
+[ext_resource path="res://sounds/big_step_1.ogg" type="AudioStream" id=12]
+[ext_resource path="res://sounds/big_step_2.ogg" type="AudioStream" id=13]
+[ext_resource path="res://sounds/big_step_3.ogg" type="AudioStream" id=14]
+[ext_resource path="res://sounds/big_step_4.ogg" type="AudioStream" id=15]
+[ext_resource path="res://sounds/WalkingSounds.gd" type="Script" id=16]
+
+[node name="WalkingSounds" type="Node2D"]
+script = ExtResource( 16 )
+
+[node name="small1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+
+[node name="small2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+
+[node name="small3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="small4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="small5" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="small6" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+
+[node name="normal1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+
+[node name="normal2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+
+[node name="normal3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+
+[node name="normal4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+
+[node name="normal5" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+
+[node name="big1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+
+[node name="big2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
+
+[node name="big3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 14 )
+
+[node name="big4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 15 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/big_step_2.ogg-0e4eb3064fedd055412a8e7b4b91a67a.oggstr"
+
+[deps]
+
+source_file="res://sounds/big_step_2.ogg"
+dest_files=[ "res://.import/big_step_2.ogg-0e4eb3064fedd055412a8e7b4b91a67a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
