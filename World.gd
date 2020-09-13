@@ -26,8 +26,7 @@ func _ready():
 	wave_manager.timer.start()
 
 func instantiate(thing):
-	print(thing)
-	thing.set_owner(self)
+#	thing.set_owner(self)
 	add_child(thing)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -57,8 +56,6 @@ func spawn(curr_wave):
 			var child = wave.get_child(0)
 			wave.remove_child(child)
 			instantiate(child)
-			
-		print(get_children())
 	else:
 		wave_manager.state = "check_victory"
 		wave_manager.timer.stop()
@@ -82,14 +79,11 @@ func check_victory():
 			var child = wave.get_child(0)
 			wave.remove_child(child)
 			instantiate(child)
-			
-		print(get_children())
 
 
 
 func _on_timer_timeout():
 	spawn(wave_manager.curr_wave)
-	print("Spawning new wave")
 	wave_manager.curr_wave += 1
 	wave_manager.timer.start()
 

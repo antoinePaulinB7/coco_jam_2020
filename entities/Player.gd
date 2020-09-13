@@ -15,6 +15,9 @@ onready var state_machine = $AnimationTree["parameters/playback"]
 onready var heal_particles = $HealParticles
 onready var dmg_particles = $DamageParticles
 
+const PLAYER_MAX_SCALE = 6
+const AI_MAX_SCALE = 8
+
 var blob_scene
 var blobs_to_spawn = []
 var random_machine
@@ -102,7 +105,7 @@ func _physics_process(delta):
 
 func update_scale():
 	var hp_scale = 0.5 + lerp(0, 0.5, hp / 100.0)
-	hp_scale = min(hp_scale, 5)
+	hp_scale = min(hp_scale, PLAYER_MAX_SCALE if is_player else AI_MAX_SCALE)
 	scale = Vector2(hp_scale, hp_scale)
 
 func attack():
@@ -153,8 +156,9 @@ func equip_weapon(weapon_name):
 	weapon_state_machine.start("inactive")
 
 func drop_item():
-	while $"AnimatedSprite/Weapon place".get_child_count() > 0:
-		var curr_weapon = $"AnimatedSprite/Weapon place".get_child(0)
+	var child_count = $"AnimatedSprite/Weapon place".get_child_count()
+	for i in range(0, child_count):
+		var curr_weapon = $"AnimatedSprite/Weapon place".get_child(i)
 		weapon = null
 		weapon_state_machine = null
 		curr_weapon.weapon_owner = null
@@ -166,7 +170,6 @@ func drop_item():
 		var angle_vector = Vector2.RIGHT.rotated(random_angle)
 		
 		var dropped_item
-		print(curr_weapon.name)
 		if curr_weapon.name.to_lower().match("egg"):
 			dropped_item = dropped_egg_scene.instance()
 		elif curr_weapon.name.to_lower().match("gun"):
