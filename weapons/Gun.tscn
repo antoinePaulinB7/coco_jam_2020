@@ -114,7 +114,7 @@ transitions = [ "inactive", "attack", SubResource( 13 ), "attack", "inactive", S
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=16]
 
-[node name="RayCastRangedWeapon" type="Node2D" groups=[
+[node name="Gun" type="Node2D" groups=[
 "Weapon",
 ]]
 script = ExtResource( 2 )

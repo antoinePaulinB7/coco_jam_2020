@@ -7,7 +7,7 @@ export(int) var ACCELERATION = 640
 export(int) var FRICTION = 960
 export(int) var MAX_HP = 100
 export(String) var blob_source_name = "Blob"
-export(String) var weapon_source_name = "Sword"
+export(String) var weapon_source_name = ""
 export(String) var ai_type = "basic"
 
 onready var sprite = $AnimatedSprite
@@ -25,7 +25,9 @@ var weapon_state_machine
 var hp
 var is_player
 var is_dead
-var dropped_item_scene
+var dropped_sword_scene
+var dropped_egg_scene
+var dropped_gun_scene
 var ai_data = {}
 
 # Called when the node enters the scene tree for the first time.
@@ -37,7 +39,9 @@ func _ready():
 	random_machine = RandomNumberGenerator.new()
 	random_machine.randomize()
 	blob_scene = load("res://items/%s.tscn" % blob_source_name)
-	dropped_item_scene = load("res://items/DroppedItem.tscn")
+	dropped_sword_scene = load("res://items/DroppedSword.tscn")
+	dropped_egg_scene = load("res://items/DroppedEgg.tscn")
+	dropped_gun_scene = load("res://items/DroppedGun.tscn")
 	
 	if not is_player:
 		ai_data.player_target = get_node("/root/World/Player")
@@ -131,6 +135,8 @@ func equip_weapon(weapon_name):
 	drop_item()
 	
 	if weapon_name is String:
+		if weapon_name == "":
+			return
 		weapon = load("res://weapons/%s.tscn" % weapon_name).instance()
 	elif weapon_name.is_in_group("Weapon"):
 		weapon = weapon_name
@@ -139,7 +145,7 @@ func equip_weapon(weapon_name):
 		
 	weapon.weapon_owner = self
 	
-	$"AnimatedSprite/Weapon place".add_child(weapon)
+	$"AnimatedSprite/Weapon place".call_deferred("add_child", weapon)
 	weapon_state_machine = weapon.get_node("AnimationTree")["parameters/playback"]
 	weapon_state_machine.start("inactive")
 
@@ -154,15 +160,20 @@ func drop_item():
 		
 		$"AnimatedSprite/Weapon place".call_deferred("remove_child", curr_weapon)
 		
-		curr_weapon.set_name("%s %s" % [name, curr_weapon.name])
-		
 		var random_angle = random_machine.randf_range(0, 2*PI)
 		
 		var angle_vector = Vector2.RIGHT.rotated(random_angle)
 		
-		var dropped_item = dropped_item_scene.instance()
+		var dropped_item
+		print(curr_weapon.name)
+		if curr_weapon.name.to_lower().match("egg"):
+			dropped_item = dropped_egg_scene.instance()
+		elif curr_weapon.name.to_lower().match("gun"):
+			dropped_item = dropped_gun_scene.instance()
+		else:
+			dropped_item = dropped_sword_scene.instance()
+		
 		dropped_item.set_position(get_global_position() + angle_vector * 10 * get_scale().x)
-		dropped_item.item = curr_weapon
 		dropped_item.set_scale(scale)
 		get_tree().get_root().call_deferred("add_child", dropped_item)
 		
@@ -211,7 +222,7 @@ func ai_basic():
 			move_toward_player()
 			ai_data.ai_state = "move_toward_player"
 		"move_toward_player":
-			if get_global_position().distance_to(ai_data.player_target.get_global_position()) <= 12 * (ai_data.player_target.get_scale().x + scale.x):
+			if get_global_position().distance_to(ai_data.player_target.get_global_position()) <= 12 * (max(scale.x, ai_data.player_target.get_scale().x)):
 				ai_data.ai_state = "wait"
 				ai_data.wait = 30
 			else:

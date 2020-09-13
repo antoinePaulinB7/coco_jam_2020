@@ -133,7 +133,7 @@ graph_offset = Vector2( -297.118, -35.616 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=15]
 
-[node name="Weapon" type="Area2D" groups=[
+[node name="Sword" type="Area2D" groups=[
 "Weapon",
 ]]
 position = Vector2( 0, 0.166855 )
@@ -144,11 +144,11 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 5, 0 )
 shape = SubResource( 1 )
+disabled = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 7 )
-animation = "attack"
-frame = 1
+animation = "inactive"
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

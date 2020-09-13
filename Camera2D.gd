@@ -21,8 +21,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	target_zoom = camera_owner.scale
-	target_zoom.x = min(target_zoom.x, MAX_ZOOM.x)
-	target_zoom.y = min(target_zoom.y, MAX_ZOOM.y)
 	
 	zoom = lerp(zoom, target_zoom, zoom_speed)
 

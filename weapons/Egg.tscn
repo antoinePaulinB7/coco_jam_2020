@@ -94,7 +94,7 @@ start_node = "inactive"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=16]
 
-[node name="RangedWeapon" type="Node2D" groups=[
+[node name="Egg" type="Node2D" groups=[
 "Weapon",
 ]]
 script = ExtResource( 2 )

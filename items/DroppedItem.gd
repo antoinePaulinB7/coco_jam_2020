@@ -10,6 +10,7 @@ var item
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	collision_shape = $CollisionShape2D
+	item = collision_shape.find_node("ItemPlace").get_child(0)
 	update_size()
 	timer = Timer.new()
 	timer.set_wait_time(1)
@@ -42,7 +43,7 @@ func take_damage(amount, attack_origin, knock_back):
 
 func use(target):
 #	print("%s uses this %s" % [target.name, name])
-	if item.is_in_group("Weapon"):
+	if item != null and item.is_in_group("Weapon"):
 		$CollisionShape2D/ItemPlace.remove_child(item)
 		target.equip_weapon(item)
 	destroy()

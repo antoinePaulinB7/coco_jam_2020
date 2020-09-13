@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://entities/default_sprite_frame.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://entities/Player.gd" type="Script" id=2]
-[ext_resource path="res://assets/hat_3.png" type="Texture" id=3]
 [ext_resource path="res://entities/default_anim_tree_root.tres" type="AnimationNodeStateMachine" id=4]
 [ext_resource path="res://particles/HealParticles.tscn" type="PackedScene" id=5]
 [ext_resource path="res://particles/DamageParticles.tscn" type="PackedScene" id=6]
@@ -37,6 +36,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite/Hat place:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -3 ), Vector2( 1, 2.38419e-07 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -113,18 +124,14 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
-animation = "die"
+animation = "idle"
 frame = 2
 playing = true
 
 [node name="Hat place" type="Node2D" parent="AnimatedSprite"]
-position = Vector2( 0, -3 )
-
-[node name="Sprite" type="Sprite" parent="AnimatedSprite/Hat place"]
-texture = ExtResource( 3 )
+position = Vector2( 1, 2.38419e-07 )
 
 [node name="Weapon place" type="Node2D" parent="AnimatedSprite"]
-visible = false
 position = Vector2( 5, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
