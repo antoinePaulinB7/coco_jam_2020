@@ -109,6 +109,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
+blob_source_name = "GreenBlob"
 weapon_source_name = "Gun"
 ai_type = "ranged_gun"
 
