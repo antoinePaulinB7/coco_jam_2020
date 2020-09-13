@@ -25,7 +25,6 @@ func _physics_process(delta):
 	zoom = lerp(zoom, target_zoom, zoom_speed)
 
 func death_ui(final_score):
-	print("camera player death animation")
 	
 	drag_margin_top = 0
 	drag_margin_bottom = 0
@@ -36,7 +35,6 @@ func death_ui(final_score):
 	message_box.visible = true
 
 func victory_ui(final_score):
-	print("camera player victory animation")
 	
 	drag_margin_top = 0
 	drag_margin_bottom = 0

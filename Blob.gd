@@ -33,25 +33,20 @@ func take_damage(amount, attack_origin, knock_back):
 	
 	hp -= amount
 	
-#	print("{name} takes {dmg} damage, hp: {hp}".format({"name":name, "dmg":amount, "hp":hp}))
-	
 	if hp <= 0:
 		destroy()
 
 func use(target):
-#	print("%s uses this %s" % [target.name, name])
 	target.heal(hp)
 	destroy()
 
 func destroy():
 	call_deferred("queue_free")
-#	print("this %s is destroyed" % name)
 
 func _on_timer_timeout():
 	collision_shape.set_deferred("disabled", false)
 
 func _on_Blob_body_entered(body):
-#	print("touching %s" % body.name)
 	if body.is_in_group("Entity") and body.get_scale().x >= 1.5 * collision_shape.get_scale().x:
 		if !body.is_dead:
 			use(body)

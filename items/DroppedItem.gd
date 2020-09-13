@@ -36,13 +36,10 @@ func take_damage(amount, attack_origin, knock_back):
 	
 	hp -= amount
 	
-#	print("{name} takes {dmg} damage, hp: {hp}".format({"name":name, "dmg":amount, "hp":hp}))
-	
 	if hp <= 0:
 		destroy()
 
 func use(target):
-#	print("%s uses this %s" % [target.name, name])
 	if item != null and item.is_in_group("Weapon"):
 		$CollisionShape2D/ItemPlace.remove_child(item)
 		target.equip_weapon(item)
@@ -50,7 +47,6 @@ func use(target):
 
 func destroy():
 	call_deferred("queue_free")
-#	print("this %s is destroyed" % name)
 
 func _on_timer_timeout():
 	collision_shape.set_deferred("disabled", false)

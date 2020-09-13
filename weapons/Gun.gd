@@ -31,8 +31,6 @@ func _physics_process(delta):
 	else:
 		dir = weapon_owner.velocity * Vector2(weapon_owner.get_sprite().scale.x, 1)
 		if dir.is_equal_approx(Vector2.ZERO):
-			print(dir)
-			print(weapon_owner.name)
 			dir = Vector2.RIGHT
 		dir = dir.normalized()
 	rotation = dir.angle()

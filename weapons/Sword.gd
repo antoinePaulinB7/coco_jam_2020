@@ -30,11 +30,9 @@ func reset_touched():
 	already_touched.clear()
 
 func _on_Weapon_body_entered(body):
-#	print(body.name)
 	if weapon_owner == null:
 		return
 	if body != weapon_owner and not already_touched.has(body):
 		var total_damage = weapon_owner.get_scale().x * damage
 		already_touched.push_back(body)
-#		print(body.name)
 		body.take_damage(total_damage, weapon_owner.get_global_position(), knock_back_scale * total_damage)
